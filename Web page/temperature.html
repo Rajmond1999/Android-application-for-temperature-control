@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ESP32 Web Server</title>
+  <meta name='viewport' content='width=device-width, initial-
+scale=1'>
+  <link rel='icon' href='data:,'>
+  <style>
+    html {
+      font-family: Helvetica;
+      display: inline-block;
+      margin: 0px auto;
+      background-color: lightseagreen;
+      /*text-align: center*/
+      ;
+    }
+
+    form {
+      font-size: 0.5cm;
+    }
+
+    input {
+      font-size: 0.7cm;
+      height: 1cm;
+    }
+
+    .TempBlock {
+      max-width: 1.8cm;
+    }
+
+    #t7 {
+      background-color: lawngreen;
+    }
+
+    #t8 {
+      background-color: lawngreen;
+    }
+
+    #ref {
+      height: 2cm;
+    }
+
+    #Measuremets {
+      display: inline-block;
+      padding: 0.5cm;
+      border-style: groove;
+      background-color: darkseagreen;
+      border-color: black;
+    }
+
+    #Out {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Temperature control</h1>
+  <div id='Measuremets'>
+    <h2>Temperature = 23.30 &#x2103;</h2>
+    <h2>Humidity = 61.30 %</h2>
+  </div>
+  <form action='/action_page.php'>
+    <br><input type='submit' id='ref' value='Refresh'><br><br><br>
+  </form>
+  <h2 id='Out'>Heat is OFF</h2>
+  <h2>Currently set temperature</h2>
+  <form action='/action_page.php'>
+    <label for='V=CurrentTemperature'>Temperature: <br></label><br>
+    <input type='number' class='TempBlock' id='TempC' name='TempC' value='20' min='1' max='25'><br>
+    <label for='holdTime'>for:</label><br><input type='time' id='holdTime' name='holdTime' value='20:24'><br>
+    <br><br><input type='submit' value='Send'><br><br><br>
+  </form>
+  <h2>Current time:</h2>
+  <form action='/action_page.php'>
+    <label for='cTime'>Time:</label><br>
+    <input type='time' id='cTime' name='cTime' value='20:24'><br>
+    <br><br><input type='submit' value='Send'><br><br><br>
+  </form>
+  <h2>Program</h2>
+  <form action='/action_page.php'>
+    <label for='Temp'>Default temperature: <br></label><br>
+    <input type='number' class='TempBlock' id='Temp' name='Temp' value='25' min='1' max='25'><br><br><br>
+    <label for='t1'>Interval 1: <br>from:</label><br>
+    <input type='time' id='t1' name='t1' value='00:00'><br>
+    <label for='t2'>to:</label><br>
+    <input type='time' id='t2' name='t2' value='05:59'><br>
+    <label for='Temp1'>Temperature:</label><br>
+    <input type='number' class='TempBlock' id='Temp1' name='Temp1' value='18' min='1' max='25'>
+    <br><br><br>
+    <label for='t3'>Interval 2: <br>from:</label><br>
+    <input type='time' id='t3' name='t3' value='06:00'><br>
+    <label for='t4'>to:</label><br>
+    <input type='time' id='t4' name='t4' value='11:59'><br>
+    <label for='Temp2'>Temperature:</label><br>
+    <input type='number' class='TempBlock' id='Temp2' name='Temp2' value='18' min='1' max='25'>
+    <br><br><br>
+    <label for='t5'>Interval 3: <br>from:</label><br>
+    <input type='time' id='t5' name='t5' value='12:00'><br>
+    <label for='t6'>to:</label><br>
+    <input type='time' id='t6' name='t6' value='17:59'><br>
+    <label for='Temp3'>Temperature:</label><br>
+    <input type='number' class='TempBlock' id='Temp3' name='Temp3' value='18' min='1' max='25'>
+    <br><br><br>
+    <label for='t7'>Interval 4: <br>from:</label><br>
+    <input type='time' id='t7' name='t7' value='18:00'><br>
+    <label for='t8'>to:</label><br>
+    <input type='time' id='t8' name='t8' value='23:22'><br>
+    <label for='Temp4'>Temperature:</label><br>
+    <input type='number' class='TempBlock' id='Temp4' name='Temp4' value='20' min='1' max='25'>
+    <br><br><input type='submit' value='Send'><br><br>
+  </form>
+  <p>Click the 'Send' button and the form-data will be sent to a page on the
+    server called 'action_page.php'.</p>
+</body>
+
+</html>
